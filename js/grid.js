@@ -1,4 +1,4 @@
-var Levels = [3, 4, 5, 6];
+var Levels = [4, 6, 8, 10];
 
 function GameGrid(scale) {
 	GameObject.call(this);
@@ -29,7 +29,7 @@ function GameGrid(scale) {
 			rowElement.id = 'GameRow' + (row+1).toString();
 			for (var cell = 0; cell < self.s; cell++) {
 				elemid = 'GameCell' + (row+1).toString() + 'x' + (cell+1).toString();
-				cellElement = new Block(row, cell, elemid, self);
+				cellElement = new Block(row, cell, elemid, self, self.s);
 				self.cells[elemid] = cellElement
 				rowElement.appendChild(cellElement.element);
 			}
