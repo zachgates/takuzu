@@ -1,10 +1,11 @@
-function Block(x, y, elemid, parent) {
+function Block(x, y, elemid, parent, gridpath) {
 	GameObject.call(this);
 	var self = this;
 	
 	self.x = x;
 	self.y = y;
 	self.parent = parent;
+	self.gridpath = gridpath;
 	
 	generate();
 	
