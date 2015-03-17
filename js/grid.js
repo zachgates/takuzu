@@ -27,11 +27,9 @@ function GameGrid(scale) {
 			rowElement = document.createElement('tr');
 			rowElement.className = 'Row noselect';
 			rowElement.id = 'GameRow' + (row+1).toString();
-			rowElement.height = (self.element.height) / self.s;
 			for (var cell = 0; cell < self.s; cell++) {
 				elemid = 'GameCell' + (row+1).toString() + 'x' + (cell+1).toString();
 				cellElement = new Block(row, cell, elemid, self);
-				cellElement.element.height = (self.element.height) / self.s;
 				self.cells[elemid] = cellElement
 				rowElement.appendChild(cellElement.element);
 			}
