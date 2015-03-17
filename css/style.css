@@ -1,0 +1,30 @@
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.Table {
+	width: 600px;
+	height: 600px;
+	background: #000;
+	font-family: 'monofonto';
+}
+.Row {
+	background: #fff;
+}
+.Cell {
+	font-size: 4vw;
+	text-align: center;
+}
+.Cell.CellState1 {
+	background-color: #ffffff;
+}
+.Cell.CellState2 {
+	background-color: #45CF4D;
+}
+.Cell.CellState3 {
+	background-color: #4585F2;
+}
