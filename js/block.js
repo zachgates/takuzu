@@ -20,7 +20,7 @@ function Block(x, y, elemid, parent, gridpath) {
 					nextState = 1;
 				}
 				self.setState(nextState);
-				this.className = 'noselect Cell CellState' + nextState.toString();
+				this.className = 'Cell CellState' + nextState.toString();
 			}
 		};
 	}
