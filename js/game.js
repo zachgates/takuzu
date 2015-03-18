@@ -1,10 +1,19 @@
 function Game(scale) {
 	var self = this;
-
+	
 	generate();
 
 	function generate() {
 		self.puzzle = new GameGrid(scale, this);
+		buttonSetup();
+	}
+	
+	function buttonSetup() {
+		restartButton = document.getElementById('restart')
+		restartButton.onclick = function() {
+			self.puzzle.element.remove();
+			generate();
+		}
 	}
 
 	function solve() {
@@ -15,30 +24,21 @@ function Game(scale) {
 		// fade back to menu
 	}
 
-	this.endGame = function() {
+	self.endGame = function() {
 		// fade out
 		// exit
 	}
 
-	this.surrender = function()  {
+	self.surrender = function()  {
 		solve();
 		// pause
 		// user selects input
 	}
 
-	this.update = function(puzzle) {
+	self.update = function(puzzle) {
 		self.puzzle = puzzle;
 		for (var cell in self.puzzle.cells) {
 			// check for discrepancies
 		}
 	}
-
-	gameRestart = function() {
-		$("#restart").click(function() {
-			$("#GameTable").remove();
-			generate();
-		})
-	}
-	
-	$(document).ready(gameRestart)
 }
