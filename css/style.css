@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(55, 55, 55);
+  background-color: #2B2B2B;
 }
 .noselect {
     -webkit-touch-callout: none;
@@ -12,33 +12,38 @@ body {
 .Table {
 	width: 480px;
 	height: 480px;
-	background: #000;
+	border-collapse: separate;
+	border-spacing: 8px;
 	font-family: 'monofonto';
 }
 .Row {
-	background: #fff;
 }
 .Cell {
+	margin: 30px;
+    border-radius: 25px;
 	font-size: 4vw;
 	text-align: center;
 }
 .Cell.CellState1 {
-	background-color: #ffffff;
+	background-color: #555555;
 }
 .Cell.CellState2 {
-	background-color: #45CF4D;
+	background-color: #F94A32;
 }
 .Cell.CellState3 {
-	background-color: #4585F2;
+	background-color: #A73CBA;
 }
 .Cell.CellState4 {
-	background-color: #F94A32;
+	background-color: #45CF4D;
+}
+.Cell.CellState5 {
+	background-color: #4585F2;
 }
 .heading {
   font-family: 'monofonto';
   font-size: 4em;
   text-align: center;
-  color: rgb(239, 255, 0);
+  color: #E4FF00;
   margin: 20px 0px;
 }
 #GameTable {
