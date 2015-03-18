@@ -1,8 +1,10 @@
 var Levels = [4, 6, 8, 10];
 
-function GameGrid(scale) {
+function GameGrid(scale, game) {
 	GameObject.call(this);
 	var self = this;
+	
+	self.game = game;
 	
 	self.s = scale;
 	if (Levels.indexOf(self.s) == -1) {
@@ -47,6 +49,11 @@ function GameGrid(scale) {
 		self.element.remove();
 		self.element = null;
 		self = null;
+	}
+	
+	var gameUpdate = self.game.update;
+	this.update = function() {
+		gameUpdate(self);
 	}
 }
 
