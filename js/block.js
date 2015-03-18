@@ -11,7 +11,7 @@ function Block(x, y, elemid, parent, gridpath) {
 	
 	function generate() {
 		self.element = document.createElement('td');
-		self.element.className = 'noselect Cell CellState1';
+		self.element.className = 'Cell CellState1';
 		self.element.id = elemid;
 		self.element.onclick = function(){
 			if (self.parent.getState() > 0) {
