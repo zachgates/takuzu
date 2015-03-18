@@ -59,7 +59,7 @@ body {
 	top: 120px;
 	left: 70px;
 }
-#button {
+.button {
 	background-color: #1B1B1B;
 	width: 200px;
 	height: 50px;
@@ -67,7 +67,7 @@ body {
 	margin: 30px 40px;
 	cursor: pointer;
 }
-#button h1 {
+.button h1 {
 	display: table-cell;
 	width: 200px;
 	height: 50px;

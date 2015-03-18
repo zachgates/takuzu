@@ -12,15 +12,11 @@
 	</head>
 	<body>
 		<h1 class='heading'>Enumerate</h1>
-		<script>
-			//temporarily force 4x4 game
-			var GameHandler = new Game(4);
-		</script>
 		<div id="buttonContainer">
-			<div id="button"><h1>Main Menu</h1></div>
-			<div id="button"><h1>Restart</h1></div>
-			<div id="button"><h1>Surrender</h1></div>
-			<div id="button"><h1>Exit</h1></div>
+			<div class="button" id="mainMenu"><h1>Main Menu</h1></div>
+			<div class="button" id="restart"><h1>Restart</h1></div>
+			<div class="button" id="surrender"><h1>Surrender</h1></div>
+			<div class="button" id="exit"><h1>Exit</h1></div>
 		</div>
 		<div id="howToPlay">
 			<p>
@@ -31,5 +27,9 @@
 			Have no more than two same-colored tiles next to each other.
 			</p>
 		</div>
+		<script>
+			//temporarily force 4x4 game
+			var GameHandler = new Game(4);
+		</script>
 	</body>
 </html>

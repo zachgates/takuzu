@@ -3,18 +3,18 @@ var Levels = [4, 6, 8, 10];
 function GameGrid(scale, game) {
 	GameObject.call(this);
 	var self = this;
-	
+
 	self.game = game;
-	
+
 	self.s = scale;
 	if (Levels.indexOf(self.s) == -1) {
 		self.s = 3;
 	}
-	
+
 	self.grid = new Object();
-	
+
 	generate();
-	
+
 	function generate() {
 		self.element = document.createElement('table');
 		self.element.className = 'Table';
@@ -24,7 +24,7 @@ function GameGrid(scale, game) {
 		}
 		self.elementBody = document.createElement('tbody');
 		self.element.appendChild(self.elementBody);
-		
+
 		for (var row = 0; row < self.s; row++) {
 			rowElement = document.createElement('tr');
 			rowElement.className = 'Row';
@@ -39,10 +39,10 @@ function GameGrid(scale, game) {
 			self.grid[row] = classRow;
 			self.elementBody.appendChild(rowElement);
 		}
-		
+
 		document.body.appendChild(self.element);
 	}
-	
+
 	this.adjacentDuplicates = function(array) {
 		var i = 0;
 		while (i < Object.size(array)-2) {
@@ -58,7 +58,7 @@ function GameGrid(scale, game) {
 		}
 		return false;
 	}
-	
+
 	var parentDestroy = this.destroy;
 	this.destroy = function () {
 		parentDestroy();
@@ -68,11 +68,12 @@ function GameGrid(scale, game) {
 		self.element = null;
 		self = null;
 	}
-	
+
 	var gameUpdate = self.game.update;
 	this.update = function() {
 		gameUpdate(self);
 	}
+
 }
 
 GameGrid.prototype = Object.create(GameObject.prototype);
