@@ -10,8 +10,8 @@ body {
     user-select: none;
 }
 .Table {
-	width: 600px;
-	height: 600px;
+	width: 480px;
+	height: 480px;
 	background: #000;
 	font-family: 'monofonto';
 }
@@ -39,6 +39,7 @@ body {
   font-size: 4em;
   text-align: center;
   color: rgb(239, 255, 0);
+  margin: 20px 0px;
 }
 #GameTable {
   margin-left: auto;
