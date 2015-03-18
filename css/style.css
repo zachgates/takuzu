@@ -1,3 +1,6 @@
+body {
+  background-color: darkgrey;
+}
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -30,4 +33,14 @@
 }
 .Cell.CellState4 {
 	background-color: #F94A32;
+}
+.heading {
+  font-family: 'monofonto';
+  font-size: 4em;
+  text-align: center;
+  color: rgb(239, 255, 0);
+}
+#GameTable {
+  margin-left: auto;
+  margin-right: auto;
 }
