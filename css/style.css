@@ -1,20 +1,22 @@
-body {
-  background-color: #2B2B2B;
-}
-.noselect {
-    -webkit-touch-callout: none;
+* {
+	font-family: 'monofonto';
+	letter-spacing: 1.5px;
+	-webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+	cursor: default;
+}
+body {
+	background-color: #2B2B2B;
 }
 .Table {
 	width: 480px;
 	height: 480px;
 	border-collapse: separate;
 	border-spacing: 8px;
-	font-family: 'monofonto';
 }
 .Row {
 }
@@ -40,13 +42,50 @@ body {
 	background-color: #4585F2;
 }
 .heading {
-  font-family: 'monofonto';
-  font-size: 4em;
-  text-align: center;
-  color: #E4FF00;
-  margin: 20px 0px;
+	font-size: 4em;
+	text-align: center;
+	color: #E4FF00;
+	margin: 20px 0px;
 }
 #GameTable {
-  margin-left: auto;
-  margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+#buttonContainer {
+	z-index: 10;
+	position: absolute;
+	width: 280px;
+	height: 350px;
+	top: 120px;
+	left: 70px;
+}
+#button {
+	background-color: #1B1B1B;
+	width: 200px;
+	height: 50px;
+	border-radius: 12px;
+	margin: 30px 40px;
+	cursor: pointer;
+}
+#button h1 {
+	display: table-cell;
+	width: 200px;
+	height: 50px;
+	font-size: 1.5em;
+	text-align: center;
+	vertical-align: middle;
+	color: #CCCCCC;
+	cursor: pointer;
+}
+#howToPlay {
+	z-index: 10;
+	position: absolute;
+	width: 260px;
+	height: 350px;
+	top: 120px;
+	right: 80px;
+	margin: 30px 0px;
+}
+#howToPlay p {
+	color: #CCCCCC;
 }

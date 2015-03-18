@@ -17,7 +17,7 @@ function GameGrid(scale, game) {
 	
 	function generate() {
 		self.element = document.createElement('table');
-		self.element.className = 'Table noselect';
+		self.element.className = 'Table';
 		self.element.id = 'GameTable';
 		self.element.remove = function () {
 			this.parentElement.removeChild(this);
@@ -27,7 +27,7 @@ function GameGrid(scale, game) {
 		
 		for (var row = 0; row < self.s; row++) {
 			rowElement = document.createElement('tr');
-			rowElement.className = 'Row noselect';
+			rowElement.className = 'Row';
 			rowElement.id = 'GameRow' + (row+1).toString();
 			for (var cell = 0; cell < self.s; cell++) {
 				elemid = 'GameCell' + (row+1).toString() + 'x' + (cell+1).toString();
