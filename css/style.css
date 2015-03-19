@@ -50,6 +50,7 @@ body {
 #GameTable {
 	margin-left: auto;
 	margin-right: auto;
+	display: none;
 }
 #buttonContainer {
 	z-index: 10;
@@ -66,6 +67,10 @@ body {
 	border-radius: 12px;
 	margin: 30px 40px;
 	cursor: pointer;
+}
+.button:hover {
+    background-color: #555555;
+    border-radius
 }
 .button h1 {
 	display: table-cell;
@@ -88,4 +93,9 @@ body {
 }
 #howToPlay p {
 	color: #CCCCCC;
+}
+#EnumerateGame {
+	display:none;
+}
+#MainMenu {
 }
