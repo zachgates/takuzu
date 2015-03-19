@@ -40,7 +40,7 @@ function GameGrid(scale, game) {
 			self.elementBody.appendChild(rowElement);
 		}
 
-		document.body.appendChild(self.element);
+		$('#GameContainer')[0].appendChild(self.element);
 	}
 
 	this.adjacentDuplicates = function(array) {
