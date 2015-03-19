@@ -1200,3 +1200,4 @@ defaultFour = [
 		3: {0: 1, 1: 1, 2: 1, 3: 2},
 	},
 ];
+// todo: 4x4, 6x6, and 10x10 puzzles
