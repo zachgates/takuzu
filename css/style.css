@@ -22,7 +22,7 @@ body {
 }
 .Cell {
 	margin: 30px;
-    border-radius: 25px;
+    border-radius: 25%;
 	font-size: 4vw;
 	text-align: center;
 }
@@ -44,8 +44,9 @@ body {
 .heading {
 	font-size: 4em;
 	text-align: center;
-	color: #E4FF00;
+	color: #EEEEEE;
 	margin: 20px 0px;
+	cursor: pointer;
 }
 #GameTable {
 	margin-left: auto;
@@ -62,9 +63,9 @@ body {
 	max-width: 120px;
 	max-height: 120px;
 	border-radius: 20px;
-	color: #DDDDDD;
 	text-align: center;
 	cursor: pointer;
+	color: #EEEEEE;
 }
 #menu tr td h1 {
 	font-size: 3em;
@@ -93,6 +94,7 @@ body {
 	border-radius: 12px;
 	margin: 30px 40px;
 	cursor: pointer;
+	color: #EEEEEE;
 }
 .button h1 {
 	display: table-cell;
@@ -101,16 +103,17 @@ body {
 	font-size: 1.5em;
 	text-align: center;
 	vertical-align: middle;
-	color: #CCCCCC;
 	cursor: pointer;
 }
 .overlay {
-	z-index: 100;
+	z-index: 50;
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	top: 0px;
 	left: 0px;
+}
+#MainMenu {
 	background-color: #2B2B2B;
 }
 #gameHowToPlay {
