@@ -46,7 +46,7 @@ function Game(scale, dev) {
 	}
 
 	function solve() {
-		// fade in solution
+		// todo: fade in solution
 	}
 
 	function exit() {
@@ -63,14 +63,19 @@ function Game(scale, dev) {
 
 	self.surrender = function()  {
 		solve();
-		// pause
-		// user selects input
 	}
 
-	self.update = function(puzzle) {
-		self.puzzle = puzzle;
-		for (var cell in self.puzzle.cells) {
-			// check for discrepancies
+	self.update = function() {
+		// successfully checks rows
+		for (var row in self.puzzle.grid) {
+			if ((self.puzzle.triples(self.puzzle.grid[row])) || (self.puzzle.equalTiles(self.puzzle.grid[row]))) {
+				return true;
+			}
 		}
+		if (self.puzzle.duplicates(self.puzzle.grid)) {
+			return true;
+		}
+		return false;
+		// todo: figure out how to check columns
 	}
 }

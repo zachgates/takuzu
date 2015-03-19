@@ -43,8 +43,38 @@ function GameGrid(scale, game, starter) {
 
 		$('#GameContainer')[0].appendChild(self.element);
 	}
+	
+	self.duplicates = function(fullGrid) {
+		states = new Array();
+		for (var array in fullGrid) {
+			arrayStates = '';
+			for (var cell in fullGrid[array]) {
+				arrayStates += fullGrid[array][cell].getState().toString();
+			}
+			states.push(arrayStates);
+		}
+		uniqueStates = [];
+		$.each(states, function(i, cell){ if($.inArray(cell, uniqueStates) == -1) uniqueStates.push(cell); });
+		return (states.length != uniqueStates.length);
+	}
+	
+	self.equalTiles = function(array) {
+		states = new Array();
+		for (var cell in array) {
+			states.push(array[cell].getState());
+		}
+		tileCount = states.filter(function(i) { return i == 2; }).length;
+		if (tileCount > (self.scale / 2)) {
+			return true;
+		}
+		tileCount = states.filter(function(i) { return i == 3; }).length;
+		if (tileCount > (self.scale / 2)) {
+			return true;
+		}
+		return false;
+	}
 
-	self.adjacentDuplicates = function(array) {
+	self.triples = function(array) {
 		var i = 0;
 		while (i < Object.size(array)-2) {
 			value = array[i].getState();
