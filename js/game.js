@@ -1,27 +1,48 @@
-function Game(scale) {
+function Game(scale, dev) {
 	var self = this;
 	
 	generate();
 
 	function generate() {
-		self.puzzle = new GameGrid(scale, this);
+		self.starter = new Object();
+		if (scale == 4) {
+			self.puzzle = new GameGrid(scale, this, defaultFour[Math.floor(Math.random() * defaultFour.length)]);
+			for (var rn in self.puzzle.grid) {
+				row = new Object();
+				for (var cell in self.puzzle.grid[rn]) {
+					row[cell] = self.puzzle.grid[rn][cell].getState();
+				}
+				self.starter[rn] = row;
+			}
+		}
+		else {
+			emptyGrid = Array.apply(null, Array(scale)).map(function (_, i) {return i;});
+			for (var row in emptyGrid) {
+				gridRow = new Object();
+				for (var cell in emptyGrid) {
+					gridRow[cell] = 1;
+				}
+				self.starter[row] = gridRow;
+			}
+			self.puzzle = new GameGrid(scale, this, self.starter);
+		}
 		buttonSetup();
 	}
 	
 	function buttonSetup() {
 		restartButton = document.getElementById('restartBtn');
 		restartButton.onclick = function() {
-			self.puzzle.element.remove();
-			generate();
+			restart();
 		}
 		mainMenuButton = document.getElementById('mainMenuBtn');
 		mainMenuButton.onclick = function() {
-			setTimeout(function() {
-				self.puzzle.element.remove();
-				self.puzzle = null;
-			}, 1000);
-			exit();
+			endGame();
 		}
+	}
+	
+	function restart() {
+		self.puzzle.destroy();
+		self.puzzle = new GameGrid(scale, this, self.starter);
 	}
 
 	function solve() {
@@ -32,9 +53,12 @@ function Game(scale) {
 		$('#MainMenu').fadeIn();
 	}
 
-	self.endGame = function() {
-		// fade out
-		// exit
+	function endGame() {
+		setTimeout(function() {
+			self.puzzle.destroy();
+			self.puzzle = null;
+		}, 1000);
+		exit();
 	}
 
 	self.surrender = function()  {

@@ -24,6 +24,12 @@ function Block(x, y, elemid, parent, gridpath) {
 			}
 		};
 	}
+	
+	var parentSetState = self.setState;
+	self.setState = function(state) {
+		parentSetState(state);
+		self.element.className = 'Cell CellState' + state.toString();
+	}
 }
 
 Block.prototype = Object.create(GameObject.prototype);
