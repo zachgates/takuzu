@@ -4,14 +4,27 @@ function Game(scale, dev) {
 	generate();
 
 	function generate() {
-		self.puzzle = new GameGrid(scale, this, defaultFour[Math.floor(Math.random() * defaultFour.length)]);
 		self.starter = new Object();
-		for (var rn in self.puzzle.grid) {
-			row = new Object();
-			for (var cell in self.puzzle.grid[rn]) {
-				row[cell] = self.puzzle.grid[rn][cell].getState();
+		if (scale == 4) {
+			self.puzzle = new GameGrid(scale, this, defaultFour[Math.floor(Math.random() * defaultFour.length)]);
+			for (var rn in self.puzzle.grid) {
+				row = new Object();
+				for (var cell in self.puzzle.grid[rn]) {
+					row[cell] = self.puzzle.grid[rn][cell].getState();
+				}
+				self.starter[rn] = row;
 			}
-			self.starter[rn] = row;
+		}
+		else {
+			emptyGrid = Array.apply(null, Array(scale)).map(function (_, i) {return i;});
+			for (var row in emptyGrid) {
+				gridRow = new Object();
+				for (var cell in emptyGrid) {
+					gridRow[cell] = 1;
+				}
+				self.starter[row] = gridRow;
+			}
+			self.puzzle = new GameGrid(scale, this, self.starter);
 		}
 		buttonSetup();
 	}
