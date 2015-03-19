@@ -1,4 +1,6 @@
-function Block(x, y, elemid, parent, gridpath) {
+var update;
+
+function Block(x, y, elemid, parent, gridpath, starter) {
 	GameObject.call(this);
 	var self = this;
 	
@@ -6,6 +8,7 @@ function Block(x, y, elemid, parent, gridpath) {
 	self.y = y;
 	self.parent = parent;
 	self.gridpath = gridpath;
+	self.starter = starter;
 	
 	generate();
 	
@@ -19,8 +22,16 @@ function Block(x, y, elemid, parent, gridpath) {
 				if (nextState > 3) {
 					nextState = 1;
 				}
-				self.setState(nextState);
-				this.className = 'Cell CellState' + nextState.toString();
+				if (self.starter[x][y] == 1) {
+					self.setState(nextState);
+					this.className = 'Cell CellState' + nextState.toString();
+				}
+				if (update) {
+					clearTimeout(update);
+				}
+				update = setTimeout(function() {
+					self.parent.game.update()
+				}, 1500);
 			}
 		};
 	}

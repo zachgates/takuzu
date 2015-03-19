@@ -5,6 +5,7 @@ function GameGrid(scale, game, starter) {
 	var self = this;
 
 	self.game = game;
+	self.starter = starter;
 
 	self.scale = scale;
 	if (Levels.indexOf(self.scale) == -1) {
@@ -32,7 +33,7 @@ function GameGrid(scale, game, starter) {
 			classRow = new Object();
 			for (var cell = 0; cell < self.scale; cell++) {
 				elemid = 'GameCell' + (row+1).toString() + 'x' + (cell+1).toString();
-				cellElement = new Block(row, cell, elemid, self, self.scale);
+				cellElement = new Block(row, cell, elemid, self, self.scale, self.starter);
 				cellElement.setState(starter[row][cell]);
 				classRow[cell] = cellElement
 				rowElement.appendChild(cellElement.element);
