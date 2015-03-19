@@ -1,27 +1,35 @@
-function Game(scale) {
+function Game(scale, dev) {
 	var self = this;
 	
 	generate();
 
 	function generate() {
-		self.puzzle = new GameGrid(scale, this);
+		self.puzzle = new GameGrid(scale, this, defaultFour[Math.floor(Math.random() * defaultFour.length)]);
+		self.starter = new Object();
+		for (var rn in self.puzzle.grid) {
+			row = new Object();
+			for (var cell in self.puzzle.grid[rn]) {
+				row[cell] = self.puzzle.grid[rn][cell].getState();
+			}
+			self.starter[rn] = row;
+		}
 		buttonSetup();
 	}
 	
 	function buttonSetup() {
 		restartButton = document.getElementById('restartBtn');
 		restartButton.onclick = function() {
-			self.puzzle.element.remove();
-			generate();
+			restart();
 		}
 		mainMenuButton = document.getElementById('mainMenuBtn');
 		mainMenuButton.onclick = function() {
-			setTimeout(function() {
-				self.puzzle.element.remove();
-				self.puzzle = null;
-			}, 1000);
-			exit();
+			endGame();
 		}
+	}
+	
+	function restart() {
+		self.puzzle.destroy();
+		self.puzzle = new GameGrid(scale, this, self.starter);
 	}
 
 	function solve() {
@@ -32,9 +40,12 @@ function Game(scale) {
 		$('#MainMenu').fadeIn();
 	}
 
-	self.endGame = function() {
-		// fade out
-		// exit
+	function endGame() {
+		setTimeout(function() {
+			self.puzzle.destroy();
+			self.puzzle = null;
+		}, 1000);
+		exit();
 	}
 
 	self.surrender = function()  {

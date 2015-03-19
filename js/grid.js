@@ -1,14 +1,14 @@
 var Levels = [4, 6, 8, 10];
 
-function GameGrid(scale, game) {
+function GameGrid(scale, game, starter) {
 	GameObject.call(this);
 	var self = this;
 
 	self.game = game;
 
-	self.s = scale;
-	if (Levels.indexOf(self.s) == -1) {
-		self.s = 3;
+	self.scale = scale;
+	if (Levels.indexOf(self.scale) == -1) {
+		self.scale = 3;
 	}
 
 	self.grid = new Object();
@@ -25,14 +25,15 @@ function GameGrid(scale, game) {
 		self.elementBody = document.createElement('tbody');
 		self.element.appendChild(self.elementBody);
 
-		for (var row = 0; row < self.s; row++) {
+		for (var row = 0; row < self.scale; row++) {
 			rowElement = document.createElement('tr');
 			rowElement.className = 'Row';
 			rowElement.id = 'GameRow' + (row+1).toString();
 			classRow = new Object();
-			for (var cell = 0; cell < self.s; cell++) {
+			for (var cell = 0; cell < self.scale; cell++) {
 				elemid = 'GameCell' + (row+1).toString() + 'x' + (cell+1).toString();
-				cellElement = new Block(row, cell, elemid, self, self.s);
+				cellElement = new Block(row, cell, elemid, self, self.scale);
+				cellElement.setState(starter[row][cell]);
 				classRow[cell] = cellElement
 				rowElement.appendChild(cellElement.element);
 			}
@@ -43,7 +44,7 @@ function GameGrid(scale, game) {
 		$('#GameContainer')[0].appendChild(self.element);
 	}
 
-	this.adjacentDuplicates = function(array) {
+	self.adjacentDuplicates = function(array) {
 		var i = 0;
 		while (i < Object.size(array)-2) {
 			value = array[i].getState();
@@ -59,18 +60,18 @@ function GameGrid(scale, game) {
 		return false;
 	}
 
-	var parentDestroy = this.destroy;
-	this.destroy = function () {
+	var parentDestroy = self.destroy;
+	self.destroy = function () {
 		parentDestroy();
 		self.grid = null;
-		self.s = null;
+		self.scale = null;
 		self.element.remove();
 		self.element = null;
 		self = null;
 	}
 
 	var gameUpdate = self.game.update;
-	this.update = function() {
+	self.update = function() {
 		gameUpdate(self);
 	}
 
