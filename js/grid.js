@@ -43,7 +43,7 @@ function GameGrid(scale, game, starter) {
 
 		$('#GameContainer')[0].appendChild(self.element);
 	}
-	
+
 	self.duplicates = function(fullGrid) {
 		states = new Array();
 		for (var array in fullGrid) {
@@ -57,7 +57,7 @@ function GameGrid(scale, game, starter) {
 		$.each(states, function(i, cell){ if($.inArray(cell, uniqueStates) == -1) uniqueStates.push(cell); });
 		return (states.length != uniqueStates.length);
 	}
-	
+
 	self.equalTiles = function(array) {
 		states = new Array();
 		for (var cell in array) {

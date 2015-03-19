@@ -1,20 +1,20 @@
 function Block(x, y, elemid, parent, gridpath) {
 	GameObject.call(this);
 	var self = this;
-	
+
 	self.x = x;
 	self.y = y;
 	self.parent = parent;
 	self.gridpath = gridpath;
-	
+
 	generate();
-	
+
 	function generate() {
 		self.element = document.createElement('td');
 		self.element.className = 'Cell CellState1';
 		self.element.id = elemid;
 		self.element.onclick = function(){
-			if (self.parent.getState() > 0) {
+			if (self.parent.getState() > 1) {
 				nextState = self.getState() + 1;
 				if (nextState > 3) {
 					nextState = 1;
@@ -24,7 +24,7 @@ function Block(x, y, elemid, parent, gridpath) {
 			}
 		};
 	}
-	
+
 	var parentSetState = self.setState;
 	self.setState = function(state) {
 		parentSetState(state);
