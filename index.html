@@ -4,32 +4,47 @@
 		<link rel="stylesheet" type="text/css" href="fonts/fonts.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-		<script type="text/javascript" src="js/custom.js"></script>
+		<script type="text/javascript" src="js/setup.js"></script>
 		<script type="text/javascript" src="js/game.js"></script>
 		<script type="text/javascript" src="js/object.js"></script>
 		<script type="text/javascript" src="js/block.js"></script>
 		<script type="text/javascript" src="js/grid.js"></script>
 	</head>
 	<body>
-		<h1 class='heading'>Enumerate</h1>
-		<div id="buttonContainer">
-			<div class="button" id="mainMenu"><h1>Main Menu</h1></div>
-			<div class="button" id="restart"><h1>Restart</h1></div>
-			<div class="button" id="surrender"><h1>Surrender</h1></div>
-			<div class="button" id="exit"><h1>Exit</h1></div>
+		<div class="overlay" id="MainMenu">
+			<h1 class='heading'>Enumerate</h1>
+			<div id="menuButtonContainer">
+				<table id="menu">
+					<tr>
+						<td class="menuButton" id="4x4" onclick="startGame(4)"><h1>4</h1></td>
+						<td class="menuButton" id="6x6" onclick="startGame(6)"><h1>6</h1></td>
+					</tr>
+					<tr>
+						<td class="menuButton" id="8x8" onclick="startGame(8)"><h1>8</h1></td>
+						<td class="menuButton" id="10x10" onclick="startGame(10)"><h1>10</h1></td>
+					</tr>
+				</table>
+				<div class="menuButton" id="playGame"></div>
+				<div class="menuButton" id="menuHowToPlay"></div>
+			</div>
 		</div>
-		<div id="howToPlay">
-			<p>
-			Get the same number of each colored tile in every row and column.
-			<br><br><br>
-			Have no identical rows or columns.
-			<br><br><br>
-			Have no more than two same-colored tiles next to each other.
-			</p>
+		<div id="GameContainer">
+			<h1 class='heading'>Enumerate</h1>
+			<div id="gameButtonContainer">
+				<div class="button" id="mainMenuBtn"><h1>Main Menu</h1></div>
+				<div class="button" id="restartBtn"><h1>Restart</h1></div>
+				<div class="button" id="surrenderBtn"><h1>Surrender</h1></div>
+				<div class="button" id="exitBtn"><h1>Exit</h1></div>
+			</div>
+			<div id="gameHowToPlay">
+				<p>
+				Get the same number of each colored tile in every row and column.
+				<br><br><br>
+				Have no identical rows or columns.
+				<br><br><br>
+				Have no more than two same-colored tiles next to each other.
+				</p>
+			</div>
 		</div>
-		<script>
-			//temporarily force 4x4 game
-			var GameHandler = new Game(4);
-		</script>
 	</body>
 </html>

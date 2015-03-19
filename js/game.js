@@ -9,10 +9,18 @@ function Game(scale) {
 	}
 	
 	function buttonSetup() {
-		restartButton = document.getElementById('restart')
+		restartButton = document.getElementById('restartBtn');
 		restartButton.onclick = function() {
 			self.puzzle.element.remove();
 			generate();
+		}
+		mainMenuButton = document.getElementById('mainMenuBtn');
+		mainMenuButton.onclick = function() {
+			setTimeout(function() {
+				self.puzzle.element.remove();
+				self.puzzle = null;
+			}, 1000);
+			exit();
 		}
 	}
 
@@ -21,7 +29,7 @@ function Game(scale) {
 	}
 
 	function exit() {
-		// fade back to menu
+		$('#MainMenu').fadeIn();
 	}
 
 	self.endGame = function() {
