@@ -1,3 +1,5 @@
+var update;
+
 function Block(x, y, elemid, parent, gridpath, starter) {
 	GameObject.call(this);
 	var self = this;
@@ -24,6 +26,12 @@ function Block(x, y, elemid, parent, gridpath, starter) {
 					self.setState(nextState);
 					this.className = 'Cell CellState' + nextState.toString();
 				}
+				if (update) {
+					clearTimeout(update);
+				}
+				update = setTimeout(function() {
+					self.parent.game.update()
+				}, 1500);
 			}
 		};
 	}
