@@ -1,17 +1,18 @@
 var gotoGame = function() {
   $("#playGame").on("click", function() {
-    $("#MainMenu").css("display", "none");
-    $("#EnumerateGame").css("display", "inline");
-    $("#GameTable").css("display", "table");
+    $("#MainMenu").fadeOut(2000);
+    $("#EnumerateGame").fadeIn(2000);
+    $("#GameTable").fadeIn(2000);
   })
 }
 
 var gotoMenu = function() {
   $("#gotoMenu").on("click", function() {
-    $("#MainMenu").css("display", "inline");
-    $("#EnumerateGame").css("display", "none");
-    $("#GameTable").css("display", "none");
+    $("#EnumerateGame").fadeOut(1000);
+    $("#GameTable").fadeOut(1000);
+    $("#MainMenu").fadeIn(1000);
   })
 }
 
-$(document).ready(gotoGame)
+$(document).ready(gotoGame);
+$(document).ready(gotoMenu);
