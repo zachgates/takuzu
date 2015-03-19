@@ -1,6 +1,6 @@
 function Game(scale, dev) {
 	var self = this;
-	
+
 	generate();
 
 	function generate() {
@@ -28,7 +28,7 @@ function Game(scale, dev) {
 		}
 		buttonSetup();
 	}
-	
+
 	function buttonSetup() {
 		restartButton = document.getElementById('restartBtn');
 		restartButton.onclick = function() {
@@ -39,10 +39,10 @@ function Game(scale, dev) {
 			endGame();
 		}
 	}
-	
+
 	function restart() {
 		self.puzzle.destroy();
-		self.puzzle = new GameGrid(scale, this, self.starter);
+		generate();
 	}
 
 	function solve() {
