@@ -1,18 +1,19 @@
 function Game(scale) {
 	var self = this;
-	
+
 	generate();
 
 	function generate() {
 		self.puzzle = new GameGrid(scale, this);
 		buttonSetup();
 	}
-	
+
 	function buttonSetup() {
 		restartButton = document.getElementById('restart')
 		restartButton.onclick = function() {
 			self.puzzle.element.remove();
 			generate();
+			self.puzzle.element.style.display = "table";
 		}
 	}
 
@@ -27,6 +28,7 @@ function Game(scale) {
 	self.endGame = function() {
 		// fade out
 		// exit
+		exit();
 	}
 
 	self.surrender = function()  {
