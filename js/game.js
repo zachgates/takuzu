@@ -7,6 +7,9 @@ function Game(scale, dev) {
 		if (scale == 4) {
 			self.starter = defaultFour[Math.floor(Math.random() * defaultFour.length)];
 		}
+		else if (scale == 6) {
+			self.starter = defaultSix[Math.floor(Math.random() * defaultSix.length)];
+		}
 		else {
 			self.starter = new Object();
 			emptyGrid = Array.apply(null, Array(scale)).map(function (_, i) {return i;});
@@ -31,11 +34,15 @@ function Game(scale, dev) {
 		mainMenuButton.onclick = function() {
 			endGame();
 		}
+		surrenderButton = document.getElementById('surrenderBtn');
+		surrenderButton.onclick = function() {
+			surrender();
+		}
 	}
 	
 	function restart() {
-		self.puzzle.destroy();
-		self.puzzle = new GameGrid(scale, this, self.starter);
+		self.puzzle.element.remove();
+		self.puzzle = new GameGrid(scale, self, self.starter);
 	}
 
 	function solve() {
@@ -54,21 +61,49 @@ function Game(scale, dev) {
 		exit();
 	}
 
-	self.surrender = function()  {
+	function surrender()  {
 		solve();
+		$('#gameHeading').text('You lose!');
+		self.puzzle.setState(3);
+		setTimeout(function() {
+			endGame();
+			$('#gameHeading').text('Enumerate');
+		}, 2000);
 	}
 
 	self.update = function() {
-		// successfully checks rows
 		for (var row in self.puzzle.grid) {
 			if ((self.puzzle.triples(self.puzzle.grid[row])) || (self.puzzle.equalTiles(self.puzzle.grid[row]))) {
-				return true;
+				return false;
 			}
 		}
 		if (self.puzzle.duplicates(self.puzzle.grid)) {
-			return true;
+			return false;
 		}
-		return false;
-		// todo: figure out how to check columns
+		var columns = new Object();
+		for (var i in self.puzzle.grid) {
+			columns[i] = new Object();
+		}
+		for (var i in self.puzzle.grid) {
+			for (var e in self.puzzle.grid) {
+				columns[e][i] = self.puzzle.grid[i][e];
+			}
+		}
+		for (var column in columns) {
+			if ((self.puzzle.triples(columns[column])) || (self.puzzle.equalTiles(columns[column]))) {
+				return false;
+			}
+		}
+		if (self.puzzle.duplicates(columns)) {
+			return false;
+		}
+		if (self.puzzle.isFull()) {
+			$('#gameHeading').text('You win!');
+			self.puzzle.setState(2);
+			setTimeout(function() {
+				endGame();
+				$('#gameHeading').text('Enumerate');
+			}, 2000);
+		}
 	}
 }

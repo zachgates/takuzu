@@ -3,6 +3,7 @@ var Levels = [4, 6, 8, 10];
 function GameGrid(scale, game, starter) {
 	GameObject.call(this);
 	var self = this;
+	self.setState(1);
 
 	self.game = game;
 	self.starter = starter;
@@ -90,6 +91,17 @@ function GameGrid(scale, game, starter) {
 		}
 		return false;
 	}
+	
+	self.isFull = function() {
+		for (var row in self.grid) {
+			for (var cell in self.grid[row]) {
+				if (self.grid[row][cell].getState() == 1) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
 	var parentDestroy = self.destroy;
 	self.destroy = function () {
@@ -103,7 +115,7 @@ function GameGrid(scale, game, starter) {
 
 	var gameUpdate = self.game.update;
 	self.update = function() {
-		gameUpdate(self);
+		gameUpdate();
 	}
 
 }
