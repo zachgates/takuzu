@@ -46,6 +46,10 @@ function GameGrid(scale, game, starter) {
 		$('#GameContainer')[0].appendChild(self.element);
 	}
 	
+	self.setDirect = function(x, y, state) {
+		self.grid[x][y].setState(state);
+	}
+	
 	self.duplicates = function(fullGrid) {
 		states = new Array();
 		for (var array in fullGrid) {
@@ -114,8 +118,8 @@ function GameGrid(scale, game, starter) {
 	}
 
 	var gameUpdate = self.game.update;
-	self.update = function() {
-		gameUpdate();
+	self.update = function(x, y, oldState, newState) {
+		gameUpdate(x, y, oldState, newState);
 	}
 
 }
