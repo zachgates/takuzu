@@ -35,10 +35,6 @@ $(document).ready(
 			$(this).css({backgroundColor: '#1B1B1B', color: '#EEEEEE'});
 		});
 		
-		$('.heading').click(function() {
-			location.reload();
-		});
-		
 		$('.heading').hover(function() {
 			$(this).css({color: '#45CF4D'});
 		}, function() {
