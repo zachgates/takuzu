@@ -1,6 +1,8 @@
 function Game(scale, dev) {
 	var self = this;
 	
+	self.moves = new Array();
+	
 	generate();
 
 	function generate() {
@@ -41,11 +43,26 @@ function Game(scale, dev) {
 		surrenderButton.onclick = function() {
 			surrender();
 		}
+		undoButton = document.getElementById('undoBtn');
+		undoButton.onclick = function() {
+			undo();
+		}
 	}
 	
 	function restart() {
 		self.puzzle.element.remove();
 		self.puzzle = new GameGrid(scale, self, self.starter);
+	}
+	
+	function undo() {
+		if (self.moves.length > 0) {
+			var block = self.moves.pop(self.moves.length-1);
+			var x = block[0];
+			var y = block[1];
+			var oldState = block[2];
+			var newState = block[3];
+			self.puzzle.setDirect(x, y, oldState);
+		}
 	}
 
 	function solve() {
@@ -74,7 +91,8 @@ function Game(scale, dev) {
 		}, 2000);
 	}
 
-	self.update = function() {
+	self.update = function(x, y, oldState, newState) {
+		self.moves.push([x, y, oldState, newState]);
 		for (var row in self.puzzle.grid) {
 			if ((self.puzzle.triples(self.puzzle.grid[row])) || (self.puzzle.equalTiles(self.puzzle.grid[row]))) {
 				return false;
