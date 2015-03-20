@@ -68,7 +68,25 @@ function Game(scale, dev) {
 		if (self.puzzle.duplicates(self.puzzle.grid)) {
 			return true;
 		}
+		// get columns
+		var columns = new Object();
+		for (var i in self.puzzle.grid) {
+			columns[i] = new Object();
+		}
+		for (var i in self.puzzle.grid) {
+			for (var e in self.puzzle.grid) {
+				columns[e][i] = self.puzzle.grid[i][e];
+			}
+		}
+		// successfully checks columns
+		for (var column in columns) {
+			if ((self.puzzle.triples(columns[column])) || (self.puzzle.equalTiles(columns[column]))) {
+				return true;
+			}
+		}
+		if (self.puzzle.duplicates(columns)) {
+			return true;
+		}
 		return false;
-		// todo: figure out how to check columns
 	}
 }
