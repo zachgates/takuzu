@@ -10,6 +10,9 @@ function Game(scale, dev) {
 		else if (scale == 6) {
 			self.starter = defaultSix[Math.floor(Math.random() * defaultSix.length)];
 		}
+		else if (scale == 8) {
+			self.starter = defaultEight[Math.floor(Math.random() * defaultEight.length)];
+		}
 		else {
 			self.starter = new Object();
 			emptyGrid = Array.apply(null, Array(scale)).map(function (_, i) {return i;});
