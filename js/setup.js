@@ -60,7 +60,7 @@ $(document).ready(
 			$(this).css({color: '#EEEEEE'});
 		});
 		
-		$('.score').text(document.cookie.score);
+		$('.score').text(getCookie('score'));
 		
 		$('#gameHowToPlay').find('rule').hover(function() {
 			$(this).css({color: '#45CF4D'});
