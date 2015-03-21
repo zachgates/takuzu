@@ -48,24 +48,6 @@ $(document).ready(
 			$(this).css({backgroundColor: '#1B1B1B', color: '#EEEEEE'});
 		});
 		
-		$('.heading').hover(function() {
-			$(this).css({color: '#45CF4D'});
-		}, function() {
-			$(this).css({color: '#EEEEEE'});
-		});
-		
-		$('.score').hover(function() {
-			$(this).css({color: '#45CF4D'});
-		}, function() {
-			$(this).css({color: '#EEEEEE'});
-		});
-		
 		$('.score').text(getCookie('score'));
-		
-		$('#gameHowToPlay').find('rule').hover(function() {
-			$(this).css({color: '#45CF4D'});
-		}, function() {
-			$(this).css({color: '#EEEEEE'});
-		});
 	}
 );
