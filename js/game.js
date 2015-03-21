@@ -35,10 +35,6 @@ function Game(scale, dev) {
 		restartButton.onclick = function() {
 			restart();
 		}
-		mainMenuButton = document.getElementById('mainMenuBtn');
-		mainMenuButton.onclick = function() {
-			endGame();
-		}
 		surrenderButton = document.getElementById('surrenderBtn');
 		surrenderButton.onclick = function() {
 			surrender();
@@ -83,6 +79,13 @@ function Game(scale, dev) {
 
 	function surrender()  {
 		solve();
+		if ((parseInt(getCookie('score')) - (scale * scale)) < 0) {
+			document.cookie = 'score=0;';
+		}
+		else {
+			document.cookie = 'score=' + (parseInt(getCookie('score')) - (scale * scale)).toString() + ';';
+		}
+		$('.score').text(getCookie('score'));
 		$('#gameHeading').text('You lose!');
 		self.puzzle.setState(3);
 		setTimeout(function() {
