@@ -119,7 +119,7 @@ function Game(scale, dev) {
 			return false;
 		}
 		if (self.puzzle.isFull()) {
-			document.cookie = 'score=' + (getCookie('score') + (scale * scale)).toString() + ';';
+			document.cookie = 'score=' + (parseInt(getCookie('score')) + (scale * scale)).toString() + ';';
 			$('.score').text(getCookie('score'));
 			$('#gameHeading').text('You win!');
 			self.puzzle.setState(2);
