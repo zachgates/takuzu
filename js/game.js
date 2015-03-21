@@ -66,6 +66,7 @@ function Game(scale, dev) {
 	}
 
 	function exit() {
+		resetMenu();
 		$('#MainMenu').fadeIn();
 	}
 
