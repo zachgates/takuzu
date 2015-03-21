@@ -75,6 +75,16 @@ rule {
 	color: #EEEEEE;
 	margin-top: 20px;
 }
+#report-bug {
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	display: block;
+	background: transparent url(../img/bug-banner.png) 0 0 no-repeat;
+	cursor: pointer;
+}
 #GameTable {
 	margin-left: auto;
 	margin-right: auto;
