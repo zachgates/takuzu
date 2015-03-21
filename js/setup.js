@@ -7,7 +7,7 @@ function getCookie(name) {
 	return false;
 }
 
-if (!getCookie(score)) {
+if (!getCookie('score')) {
 	document.cookie = 'score=0;';
 }
 
