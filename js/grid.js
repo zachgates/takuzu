@@ -1,4 +1,4 @@
-var Levels = [4, 6, 8]; //, 10];
+var Levels = [4, 6, 8, 10];
 
 function GameGrid(scale, game, starter) {
 	GameObject.call(this);

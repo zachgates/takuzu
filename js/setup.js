@@ -1,16 +1,3 @@
-function getCookie(name) {
-	var value = "; " + document.cookie;
-	var parts = value.split("; " + name + "=");
-	if (parts.length == 2) {
-		return parts.pop().split(";").shift();
-	}
-	return false;
-}
-
-if (!getCookie(score)) {
-	document.cookie = 'score=0;';
-}
-
 Object.size = function(obj) {
     var size = 0, key;
     for (key in obj) {
@@ -53,14 +40,6 @@ $(document).ready(
 		}, function() {
 			$(this).css({color: '#EEEEEE'});
 		});
-		
-		$('.score').hover(function() {
-			$(this).css({color: '#45CF4D'});
-		}, function() {
-			$(this).css({color: '#EEEEEE'});
-		});
-		
-		$('.score').text(document.cookie.score);
 		
 		$('#gameHowToPlay').find('rule').hover(function() {
 			$(this).css({color: '#45CF4D'});
