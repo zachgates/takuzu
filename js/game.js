@@ -119,6 +119,7 @@ function Game(scale, dev) {
 			return false;
 		}
 		if (self.puzzle.isFull()) {
+			document.cookie = 'score=' + (getCookie(score) + (scale * scale)).toString() + ';';
 			$('#gameHeading').text('You win!');
 			self.puzzle.setState(2);
 			setTimeout(function() {
