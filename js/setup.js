@@ -26,15 +26,22 @@ function hexToRgb(hex) {
 		',' + parseInt(result[3], 16).toString();
 }
 
+function startGame(size) {
+	if (!document.gameStarted) {
+		var GameHandler = new Game(size);
+		document.gameStarted = true;
+		$('#MainMenu').fadeOut();
+	}
+	dev();
+}
+
+function resetMenu() {
+	document.gameStarted = false;
+}
+
 $(document).ready(
 	function() {
-		startGame = function(size) {
-			var GameHandler = new Game(size);
-		}
-		
-		$('.menuButton').click(function() {
-			$('#MainMenu').fadeOut();
-		})
+		document.gameStarted = false;
 		
 		$('#menu').find('td').hover(function() {
 			$(this).css({backgroundColor: '#4585F2', color: '#1B1B1B'});
