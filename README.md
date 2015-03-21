@@ -1,2 +1,2 @@
 # enumerate
-A JavaScript Game
+A brain game.
