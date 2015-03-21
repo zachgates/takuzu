@@ -120,6 +120,7 @@ function Game(scale, dev) {
 		}
 		if (self.puzzle.isFull()) {
 			document.cookie = 'score=' + (getCookie(score) + (scale * scale)).toString() + ';';
+			$('.score').text(getCookie('score'));
 			$('#gameHeading').text('You win!');
 			self.puzzle.setState(2);
 			setTimeout(function() {
