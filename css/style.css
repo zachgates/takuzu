@@ -124,6 +124,16 @@ rule {
 }
 .menuButton {
 	cursor: pointer;
+	position: relative;
+	box-shadow: 2px 4px #000000;
+	bottom: 4px;
+	right: 2px;
+	transition: all 0.25s ease;
+}
+.menuButton:active {
+	box-shadow: 0 0 #000000;
+	bottom: 0;
+	right: 0;
 }
 .button {
 	background-color: #1B1B1B;
@@ -133,6 +143,16 @@ rule {
 	margin: 30px 40px;
 	cursor: pointer;
 	color: #EEEEEE;
+	position: relative;
+	box-shadow: 2px 4px #000000;
+	bottom: 4px;
+	right: 2px;
+	transition: all 0.25s ease;
+}
+.button:active {
+	box-shadow: 0 0 #000000;
+	bottom: 0;
+	right: 0;
 }
 .button h1 {
 	display: table-cell;
