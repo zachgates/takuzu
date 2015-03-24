@@ -62,9 +62,8 @@ rule {
 .heading {
 	font-size: 4em;
 	text-align: center;
-	color: #45CF4D;;
-	margin: 20px 0px;
-	cursor: pointer;
+	color: #45CF4D;
+	margin: 20px 0px 0px 0px;
 }
 #twitter-info {
 	text-align: center;
@@ -143,13 +142,49 @@ rule {
 	vertical-align: middle;
 	cursor: pointer;
 }
-.overlay {
+.mainMenu {
 	z-index: 50;
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	top: 0px;
 	left: 0px;
+}
+.intro {
+	z-index: 100;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+.introHeading {
+	font-size: 6em;
+	text-align: center;
+	color: #45CF4D;
+	margin: 80px 0px 0px 0px;
+	cursor: normal;
+}
+.copyright {
+	font-size: 1.2em;
+	text-align: center;
+	color: #EEEEEE;
+	margin: 8px 0px;
+}
+.copyrightMenu {
+	font-size: 1.2em;
+	text-align: center;
+	color: #EEEEEE;
+	margin: 8px 0px;
+}
+.introClick {
+	font-size: 1.7em;
+	text-align: center;
+	color: #EEEEEE;
+	margin: 100px 0px 0px 0px;
+}
+#Intro {
+	background-color: #2B2B2B;
 }
 #MainMenu {
 	background-color: #2B2B2B;
