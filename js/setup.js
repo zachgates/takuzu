@@ -66,10 +66,10 @@ $(document).ready(
 			setTimeout(function() {
 				$('.heading').css({opacity: '1'});
 				$('.copyrightMenu').css({opacity: '1'});
+				$('.introHeading').parent().fadeOut(500, function() {
+					$(this).remove();
+				});
 			}, 500);
-			$('.introHeading').parent().fadeOut(2000, function() {
-				$(this).remove();
-			});
 			$(this).unbind('click');
 		});
 	}
