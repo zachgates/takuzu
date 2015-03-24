@@ -32,11 +32,31 @@ function startGame(size) {
 		document.gameStarted = true;
 		$('#MainMenu').fadeOut();
 	}
+    adjustForScreen(size);
 	dev();
 }
 
 function resetMenu() {
 	document.gameStarted = false;
+}
+
+var gameSize;
+
+function adjustForScreen(size) {
+    switch(size) {
+        case 4:
+            $('.Table').css({
+                'width':window.innerWidth + 'px',
+                'height':window.innerWidth +'px'
+            });
+            break;
+        case 6:
+            break;
+        case 8:
+            break;
+        default:
+            break;
+    }
 }
 
 $(document).ready(
@@ -56,5 +76,20 @@ $(document).ready(
 		});
 		
 		$('.score').text(getCookie('score'));
+        
+        $('#4x4').click(function() {
+            gameSize = 4;
+            startGame(4);
+            adjustForScreen(4);
+        });
+        $('#6x6').click(function() {
+            gameSize = 6;
+            startGame(6);
+        });
+        $('#8x8').click(function() {
+            gameSize = 8;
+            startGame(8);
+            adjustForScreen(8);
+        });
 	}
 );
