@@ -11,6 +11,7 @@
 }
 body {
 	background-color: #2B2B2B;
+    width:100%;
 }
 a {
 	text-decoration: none;
@@ -37,6 +38,7 @@ rule {
 	border-spacing: 8px;
 }
 .Row {
+    
 }
 .Cell {
 	margin: 30px;
@@ -62,7 +64,7 @@ rule {
 .heading {
 	font-size: 4em;
 	text-align: center;
-	color: #45CF4D;;
+	color: #45CF4D;
 	margin: 20px 0px;
 	cursor: pointer;
 }
