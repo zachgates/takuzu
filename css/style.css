@@ -201,3 +201,34 @@ rule {
 #gameHowToPlay p {
 	color: #CCCCCC;
 }
+#credits {
+	font-size: 1em;
+}
+#tabled-credits {
+	color: #EEEEEE;
+	text-align: center;
+	margin: 50px auto auto auto;
+	font-size: 1.3em;
+	border-collapse: separate;
+	border-spacing: 75px 20px;
+}
+.credit-info {
+	margin: 0px;
+	font-size: 0.5em;
+}
+#tabled-credits a {
+	color: #EEEEEE;
+	cursor: pointer;
+}
+.back-button {
+	top: 0;
+	left: 0;
+	position: absolute;
+	display: block;
+	font-size: 1.3em;
+	margin: 30px 30px;
+	color: #EEEEEE;
+}
+.back-button a {
+	color: #F94A32;
+}
