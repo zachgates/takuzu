@@ -32,7 +32,6 @@ function startGame(size) {
 		document.gameStarted = true;
 		$('#MainMenu').fadeOut();
 	}
-	dev();
 }
 
 function resetMenu() {
