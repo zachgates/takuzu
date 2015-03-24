@@ -56,5 +56,21 @@ $(document).ready(
 		});
 		
 		$('.score').text(getCookie('score'));
+		
+		$('.heading').css({opacity: '0'});
+		$('.copyrightMenu').css({opacity: '0'});
+		
+		$('body').click(function() {
+			$('.introClick').remove();
+			$('.introHeading').animate({margin: '20px 0px 0px 0px', fontSize: '4em'}, 500);
+			setTimeout(function() {
+				$('.heading').css({opacity: '1'});
+				$('.copyrightMenu').css({opacity: '1'});
+			}, 500);
+			$('.introHeading').parent().fadeOut(2000, function() {
+				$(this).remove();
+			});
+			$(this).unbind('click');
+		});
 	}
 );
