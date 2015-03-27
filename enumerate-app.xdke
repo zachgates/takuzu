@@ -2,6 +2,7 @@
   "project": {
     "projectSettingsVersion": "1.1",
     "projectFiles": {},
-    "projectDirectories": {}
+    "projectDirectories": {},
+    "initialAutoPluginCount": 0
   }
 }
