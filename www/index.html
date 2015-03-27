@@ -13,8 +13,9 @@
         <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls -->
         <script src="xhr.js"></script>              <!-- phantom library, needed for XDK CORS -->
         <script>
-            //purely for hiding splash screen
+            //purely for mobile setup
             intel.xdk.device.hideSplashScreen();
+            intel.xdk.device.setRotateOrientation("portrait");
         </script>
 		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript" src="js/realshadow.min.js"></script>
@@ -53,7 +54,7 @@
 	<body>
 		<div class="overlay" id="MainMenu">
 			<!--<a id='report-bug' href='https://github.com/zachgates7/enumerate/issues'></a>-->
-			<h1 class='heading' id='mainHeading'>Enumerate</h1>
+			<!--<h1 class='heading' id='mainHeading'>Enumerate</h1>-->
 			<h1 class='score' id='score'>0</h1>
 			<div id="menuButtonContainer">
 				<table id="menu">
@@ -79,12 +80,12 @@
 			</div>-->
 		</div>
 		<div id="GameContainer">
-			<h1 class='heading' id='gameHeading'>Enumerate</h1>
-			<div id="gameButtonContainer">
+			<!--<h1 class='heading' id='gameHeading'>Enumerate</h1>-->
+			<!--<div id="gameButtonContainer">
 				<div class="button" id="restartBtn"><h1>Restart</h1></div>
 				<div class="button" id="surrenderBtn"><h1>Surrender</h1></div>
 				<div class="button" id="undoBtn"><h1>Undo</h1></div>
-			</div>
+			</div>-->
 			<!--
             Will add in popup div instead
             <div id="gameHowToPlay">

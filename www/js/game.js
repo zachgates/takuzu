@@ -31,7 +31,7 @@ function Game(scale, dev) {
 	}
 	
 	function buttonSetup() {
-		restartButton = document.getElementById('restartBtn');
+		/*restartButton = document.getElementById('restartBtn');
 		restartButton.onclick = function() {
 			restart();
 		}
@@ -42,7 +42,7 @@ function Game(scale, dev) {
 		undoButton = document.getElementById('undoBtn');
 		undoButton.onclick = function() {
 			undo();
-		}
+		}*/
 	}
 	
 	function restart() {

@@ -43,20 +43,21 @@ function resetMenu() {
 var gameSize;
 
 function adjustForScreen(size) {
-    switch(size) {
-        case 4:
-            $('.Table').css({
+    //switch(size) {
+    //    case 4:
+            $('#GameContainer, .Table').css({
                 'width':window.innerWidth + 'px',
-                'height':window.innerWidth +'px'
+                'height':window.innerWidth +'px',
+                'margin-top':window.innerWidth/4 + 'px'
             });
-            break;
+            /*break;
         case 6:
             break;
         case 8:
             break;
         default:
             break;
-    }
+    }*/
 }
 
 $(document).ready(
