@@ -1,5 +1,4 @@
-# enumerate
-A brain game.
+An implementation of Takuzu
 
 ## Contributors
 * Zach Gates | [@zachgates7](https://github.com/zachgates7)
