@@ -166,7 +166,6 @@ rule {
 }
 
 .mainMenu {
-        pointer-events: none;
 	position: fixed;
         z-index: 3;
         top: 0px;
@@ -276,7 +275,7 @@ rule {
 
 
 @media all and (orientation: portrait) {
-        .mainMenu {
+        #GameContainer {
                 width: 100vh !important;
                 height: 83.333vh !important;
         }
